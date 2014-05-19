@@ -1,4 +1,13 @@
-derby-stylus
-============
+# Derby plugin to add Stylus support
 
-Derby plugin to add stylus support
+## Usage
+
+Right after creating your Derby app, add:
+
+```js
+app.serverUse(module, 'derby-stylus');
+```
+
+Make sure this is before any calls to `app.loadViews()`.
+
+After that you can use `*.styl` files instead of `*.css`
