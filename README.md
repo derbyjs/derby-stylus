@@ -5,6 +5,7 @@
 Right after creating your Derby app, add:
 
 ```js
+// Add Stylus support
 app.serverUse(module, 'derby-stylus');
 ```
 
