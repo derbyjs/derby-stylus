@@ -2,7 +2,7 @@ var nib     = require('nib');
 var stylus  = require('stylus');
 
 module.exports = function(app) {
-  app.viewExtensions.push('.styl');
+  app.styleExtensions.push('.styl');
   app.compilers['.styl'] = stylusCompiler;
 };
 
