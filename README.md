@@ -9,7 +9,7 @@ Right after creating your Derby app, add:
 app.serverUse(module, 'derby-stylus');
 ```
 
-Make sure this is before any calls to `app.loadViews()`.
+Make sure this is before any calls to `app.loadStyles()`.
 
 After that you can use `*.styl` files instead of `*.css`
 
