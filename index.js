@@ -7,8 +7,8 @@ module.exports = function(app) {
 };
 
 function stylusCompiler(file, filename, options) {
-  var css;
-  var options = {_imports: []};
+  options || (options = {});
+  options._imports || (options._imports = []);
   var out = {};
   stylus(file, options)
     .use(nib())
