@@ -23,7 +23,9 @@
   },
   "homepage": "https://github.com/codeparty/derby-stylus",
   "dependencies": {
-    "stylus": "~0.45.1",
-    "nib": "~1.0.2"
+    "stylus": "~0.46.3",
+    "clean-css": "~2.2",
+    "autoprefixer": "~2.1",
+    "findup-sync": "^0.1.2"
   }
 }

@@ -1,5 +1,7 @@
-var nib     = require('nib');
+var CleanCSS = require('clean-css');
+var autoprefixer = require('autoprefixer');
 var stylus  = require('stylus');
+var findup = require('findup-sync');
 
 module.exports = function(app) {
   app.styleExtensions.push('.styl');
@@ -8,20 +10,36 @@ module.exports = function(app) {
 
 function stylusCompiler(file, filename, options) {
   options || (options = {});
+  options.browsers || (options.browsers = ['last 2 version', '> 1%', 'ie 9', 'android 4']);
   options._imports || (options._imports = []);
   var out = {};
-  stylus(file, options)
-    .use(nib())
+  var s = stylus(file, options)
     .set('filename', filename)
-    .set('compress', options.compress)
-    .set('include css', true)
-    .render(function(err, value) {
-      if (err) throw err;
-      out.css = value;
-    });
+    .set('include css', true);
+
+  // Add data-uri() function to embed images and fonts as Data URIs.
+  // It finds nearest 'public' folder unless specified.
+  if (!options.paths) {
+    var assetsDir = findup('public', {cwd: filename});
+    if (assetsDir) options.paths = [assetsDir]
+  }
+  if (options.paths) {
+    s.define('data-uri', stylus.url({ paths: options.paths }));
+  }
+
+  s.render(function(err, value) {
+    if (err) throw err;
+    out.css = value;
+  });
   out.files = options._imports.map(function(item) {
     return item.path;
   });
   out.files.push(filename);
+  // Add vendor prefixes
+  out.css = autoprefixer(options.browsers).process(out.css).css;
+  // Minify
+  if (options.compress) {
+    out.css = new CleanCSS().minify(out.css);
+  }
   return out;
 }
