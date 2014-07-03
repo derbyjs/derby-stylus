@@ -24,6 +24,7 @@ function stylusCompiler(file, filename, options) {
     if (assetsDir) options.paths = [assetsDir]
   }
   if (options.paths) {
+    s.set('paths', options.paths);
     s.define('data-uri', stylus.url({ paths: options.paths }));
   }
 
