@@ -19,8 +19,8 @@ function stylusCompiler(file, filename, options) {
 
   // Add data-uri() function to embed images and fonts as Data URIs.
   // It finds nearest 'public' folder unless specified.
-  if (!options.paths) {
-    var assetsDir = findup('public', {cwd: filename});
+  if (!options.paths || options.paths.length === 0) {
+    var assetsDir = findup('public', { cwd: path.dirname(filename) });
     if (assetsDir) options.paths = [assetsDir]
   }
   if (options.paths) {
