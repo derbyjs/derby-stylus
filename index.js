@@ -2,6 +2,7 @@ var CleanCSS = require('clean-css');
 var autoprefixer = require('autoprefixer');
 var stylus  = require('stylus');
 var findup = require('findup-sync');
+var path = require('path');
 
 module.exports = function(app) {
   app.styleExtensions.push('.styl');
