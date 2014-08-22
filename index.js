@@ -31,7 +31,11 @@ function getStylusCompiler(app) {
 
     options._imports || (options._imports = []);
     var out = {};
-    var s = stylus(file, options)
+
+    // 'file' is not actually being used. We need to alter the order component
+    // styles are plugged in so we import the specified file before
+    // importing the components' styles
+    var s = stylus('', options)
       .set('filename', filename)
       .set('include css', true);
 
@@ -45,6 +49,9 @@ function getStylusCompiler(app) {
       s.set('paths', options.paths);
       s.define('data-uri', stylus.url({ paths: options.paths }));
     }
+
+    // Add actual specified stylesheets file
+    s.import(filename);
 
     // Plug in styles from components while keeping the ability to
     // use global variables/helpers/etc defined in the main stylesheet
