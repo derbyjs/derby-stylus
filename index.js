@@ -40,15 +40,12 @@ function getStylusCompiler(app) {
       .set('include css', true);
 
     // Add data-uri() function to embed images and fonts as Data URIs.
-    // It finds nearest 'public' folder unless specified.
-    if (!options.paths || options.paths.length === 0) {
-      var assetsDir = findup('public', { cwd: path.dirname(filename) });
-      if (assetsDir) options.paths = [assetsDir]
-    }
-    if (options.paths) {
-      s.set('paths', options.paths);
-      s.define('data-uri', stylus.url({ paths: options.paths }));
-    }
+    // Find and add nearest 'public' folder to paths.
+    options.paths || (options.paths = []);
+    var assetsDir = findup('public', { cwd: path.dirname(filename) });
+    if (assetsDir) options.paths.push(assetsDir);
+    s.set('paths', options.paths);
+    s.define('data-uri', stylus.url({ paths: options.paths }));
 
     // Add actual specified stylesheets file
     s.import(filename);
