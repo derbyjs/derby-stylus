@@ -1,5 +1,5 @@
 var CleanCSS = require('clean-css');
-var autoprefixer = require('autoprefixer');
+var autoprefixer = require('autoprefixer-core');
 var stylus  = require('stylus');
 var findup = require('findup-sync');
 var path = require('path');
@@ -66,7 +66,7 @@ function getStylusCompiler(app) {
     out.files.push(filename);
 
     // Add vendor prefixes
-    out.css = autoprefixer(options.browsers).process(out.css).css;
+    out.css = autoprefixer({ browsers: options.browsers }).process(out.css).css;
 
     // Minify
     if (options.compress) {
