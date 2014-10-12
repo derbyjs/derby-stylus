@@ -1,4 +1,3 @@
-var nib     = require('nib');
 var stylus  = require('stylus');
 
 module.exports = function(app) {
@@ -11,15 +10,11 @@ function stylusCompiler(file, filename, options) {
   options._imports || (options._imports = []);
   var out = {};
   var s = stylus(file, options)
-    .use(nib())
     .set('filename', filename)
     .set('compress', options.compress)
     .set('include css', true);
-    
-  if (options.use){
-    s.use(options.use);
-  }
-  
+
+
   s.render(function(err, value) {
     if (err) throw err;
     out.css = value;
