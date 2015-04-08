@@ -9,7 +9,8 @@ module.exports = function(app) {
   app.compilers['.styl'] = getStylusCompiler(app);
 };
 
-// Hash of loaded component's styles to prevent component styles from loading twice
+// Hash of loaded component's styles grouped by apps.
+// Used to prevent component styles from loading twice
 var loaded = {};
 
 function getStylusCompiler(app) {
