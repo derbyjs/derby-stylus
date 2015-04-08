@@ -9,7 +9,13 @@ module.exports = function(app) {
   app.compilers['.styl'] = getStylusCompiler(app);
 };
 
+// Hash of loaded component's styles to prevent component styles from loading twice
+var loaded = {};
+
 function getStylusCompiler(app) {
+
+  // Keep track of loaded components for each app
+  loaded[app.name] || (loaded[app.name] = {});
 
   var includeComponentStyles = function (s){
     for (var viewName in app.views.nameMap){
@@ -18,8 +24,10 @@ function getStylusCompiler(app) {
       if (!view.componentFactory) continue;
 
       var style = view.componentFactory.constructor.prototype.style;
-      if (style) s.import(style);
-
+      if (style && !loaded[app.name][style]) {
+        loaded[app.name][style] = true;
+        s.import(style);
+      }
     }
   };
 
