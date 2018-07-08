@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/derbyjs/derby-stylus",
   "dependencies": {
-    "stylus": "^0.49.1"
+    "stylus": "^0.54.5"
   },
   "directories": {
     "example": "example"
