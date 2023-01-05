@@ -1,6 +1,6 @@
 {
   "name": "derby-stylus",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Derby plugin to add Stylus support",
   "main": "index.js",
   "scripts": {
@@ -22,8 +22,8 @@
     "url": "https://github.com/derbyjs/derby-stylus/issues"
   },
   "homepage": "https://github.com/derbyjs/derby-stylus",
-  "dependencies": {
-    "stylus": "^0.54.5"
+  "peerDependencies": {
+    "stylus": "*"
   },
   "directories": {
     "example": "example"
