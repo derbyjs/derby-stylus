@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/codeparty/derby-stylus.git"
+    "url": "git://github.com/derbyjs/derby-stylus.git"
   },
   "keywords": [
     "derby",
@@ -23,7 +23,7 @@
   },
   "homepage": "https://github.com/codeparty/derby-stylus",
   "dependencies": {
-    "stylus": "~0.45.1",
-    "nib": "~1.0.2"
+    "nib": "^1.2.0",
+    "stylus": "^0.59.0"
   }
 }
