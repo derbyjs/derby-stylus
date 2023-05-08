@@ -2,6 +2,9 @@
   "name": "@derbyjs/derby-stylus",
   "version": "0.1.2",
   "description": "Derby plugin to add Stylus support",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -19,9 +22,9 @@
   "author": "Artur Zayats <zag2art@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/codeparty/derby-stylus/issues"
+    "url": "https://github.com/derbyjs/derby-stylus/issues"
   },
-  "homepage": "https://github.com/codeparty/derby-stylus",
+  "homepage": "https://github.com/derbyjs/derby-stylus",
   "dependencies": {
     "nib": "^1.2.0",
     "stylus": "~0.59.0"
