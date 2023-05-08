@@ -1,6 +1,6 @@
 {
   "name": "@derbyjs/derby-stylus",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Derby plugin to add Stylus support",
   "publishConfig": {
     "access": "public"
