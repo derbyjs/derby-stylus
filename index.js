@@ -24,7 +24,10 @@ module.exports = function(app, options = {}) {
       .set('compress', options.compress)
       .set('include css', true)
 
-    plugins.forEach(plugin => compiler.use(plugin()));
+    plugins.forEach(plugin => {
+      var pluginFn = require(plugin);
+      compiler.use(pluginFn());
+    });
       
     compiler.render(function(err, value) {
         if (err) throw err;
