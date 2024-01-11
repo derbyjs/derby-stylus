@@ -20,20 +20,6 @@ stylusUtils.lookupIndex = function(name, paths, filename){
     found = stylusLookupIndex(nodeModuleMatch, paths, filename);
   }
   return found;
-
-  function lookupPackage(dir) {
-    var pkg = stylusUtils.lookup(join(dir, 'package.json'), paths, filename);
-    if (!pkg) {
-      return /\.styl$/i.test(dir) ? stylusUtils.lookupIndex(dir, paths, filename) : lookupPackage(dir + '.styl');
-    }
-    var main = require(relative(__dirname, pkg)).main;
-    if (main) {
-      found = stylusUtils.find(join(dir, main), paths, filename);
-    } else {
-      found = stylusUtils.lookupIndex(dir, paths, filename);
-    }
-    return found;
-  }
 };
 
 
