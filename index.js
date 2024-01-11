@@ -31,9 +31,10 @@ module.exports = function(app, options = {}) {
 
   var includePaths = includes.reduce((acc, moduleId) => {
     var stylusModulePath = path.join(nodeModulesRoot, moduleId);
-    return fs.existsSync(stylusModulePath)
-      ? [...acc, stylusModulePath]
-      : acc;
+    if (fs.existsSync(stylusModulePath)) {
+      acc.push(stylusModulePath);
+    }
+     return acc;
   }, []);
 
   function stylusCompiler(file, filename, options) {
