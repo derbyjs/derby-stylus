@@ -19,6 +19,9 @@ stylusUtils.lookupIndex = function(name, paths, filename){
   if (!found && nodeModuleMatch) {
     found = stylusLookupIndex(nodeModuleMatch, paths, filename);
   }
+  if (!found) {
+    console.warn('[derby-stylus] Could not find ' + name + ' in ' + paths.join(', '));
+  }
   return found;
 };
 
