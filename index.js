@@ -3,10 +3,6 @@ var path    = require('path');
 var fs      = require('fs');
 
 var stylusUtils = require('stylus/lib/utils');
-var join = path.join;
-var dirname = path.dirname;
-var basename = path.basename;
-var relative = path.relative;
 
 var stylusLookupIndex = stylusUtils.lookupIndex;
 
