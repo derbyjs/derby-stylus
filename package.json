@@ -16,13 +16,16 @@
     "stylus",
     "plugin"
   ],
-  "author": "Artur Zayats <zag2art@gmail.com>",
+  "contributors": [
+    "Artur Zayats <zag2art@gmail.com>",
+    "Craig Beck <craig.beck@employinc.com>"
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/derbyjs/derby-stylus/issues"
   },
   "homepage": "https://github.com/derbyjs/derby-stylus",
-  "dependencies": {
+  "peerDependencies": {
     "stylus": "~0.59.0"
   },
   "directories": {
