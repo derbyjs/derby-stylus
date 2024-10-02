@@ -1,6 +1,6 @@
 {
   "name": "@derbyjs/derby-stylus",
-  "version": "1.0.0-beta.1",
+  "version": "1.0.0-beta.2",
   "description": "Derby plugin to add Stylus support",
   "main": "index.js",
   "scripts": {
